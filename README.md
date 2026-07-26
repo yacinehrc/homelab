@@ -1,4 +1,4 @@
-[EN COURS]
+**[EN COURS]**
 
 # Homelab
 
@@ -90,10 +90,7 @@ La VM est créée depuis l'interface web Proxmox avec les paramètres suivants.
 Installation de la version officielle Docker CE sur la VM Debian 13, via le dépôt officiel Docker.
 
 ```bash
-# Supprimer les anciennes versions si présentes
-sudo apt remove docker docker-engine docker.io containerd runc
-
-# Prérequis
+# Installer les prérequis
 sudo apt update
 sudo apt install ca-certificates curl gnupg
 
@@ -122,7 +119,7 @@ sudo usermod -aG docker $USER
 
 **Portainer** est une interface web de gestion des conteneurs Docker. Il permet de voir, démarrer, arrêter et configurer tous les conteneurs sans passer par le terminal.
 
-**Accès :** `https://ip:9443`
+**Accès :** `https://adresseIP:9443`
 
 ```bash
 mkdir -p ~/docker/portainer
@@ -157,7 +154,7 @@ sudo docker logs portainer
 
 **Nextcloud** est un cloud personnel auto-hébergé. Il permet de synchroniser et partager fichiers, calendriers et contacts, comme Google Drive mais sur sa propre infrastructure.
 
-**Accès :** `http://ip:8080`
+**Accès :** `http://adresseIP:8080`
 
 ```bash
 mkdir -p ~/docker/nextcloud
@@ -187,7 +184,7 @@ sudo docker compose up -d
 
 **Nginx Proxy Manager** est un reverse proxy avec interface graphique. Il redirige les requêtes web vers les bons conteneurs selon le domaine ou le chemin, et gère les certificats SSL/TLS automatiquement via Let's Encrypt.
 
-**Accès :** `http://ip:81` (interface d'administration)
+**Accès :** `http://adresseIP:81` (interface d'administration)
 
 ```bash
 mkdir -p ~/docker/nginx
@@ -220,7 +217,7 @@ sudo docker compose up -d
 
 **Nginx** utilisé ici comme serveur web statique pour tester et servir des pages HTML directement depuis la machine.
 
-**Accès :** `http://ip:8081`
+**Accès :** `http://adresseIP:8081`
 
 ```bash
 mkdir ~/nginx-web
@@ -244,7 +241,7 @@ sudo docker run -d --name mon-serveur-web -p 8081:80 -v ~/nginx-web/index.html:/
 
 **Uptime Kuma** est un outil de monitoring de disponibilité. Il vérifie à intervalles réguliers que chaque service du homelab répond correctement, et envoie des alertes en cas de panne.
 
-**Accès :** `http://ip:3001`
+**Accès :** `http://adresseIP:3001`
 
 ```bash
 mkdir ~/ai-tools
@@ -275,7 +272,7 @@ sudo docker compose up -d
 
 **Ollama** est un moteur d'exécution de modèles de langage (LLM) en local. **Open WebUI** est l'interface web qui lui est connectée, offrant une expérience similaire à ChatGPT mais entièrement hébergée sur la machine, sans envoyer de données à des serveurs externes.
 
-**Accès :** `http://ip:3000`
+**Accès :** `http://adresseIP:3000`
 
 ```bash
 mkdir ~/ollama-webui && cd ~/ollama-webui
@@ -321,7 +318,7 @@ sudo docker compose up -d
 
 **HomePage** est un tableau de bord personnalisable qui centralise tous les services du homelab sur une seule page. Il affiche les liens, statuts et informations de chaque service en temps réel.
 
-**Accès :** `http://ip:3005`
+**Accès :** `http://adresseIP:3005`
 
 ```bash
 mkdir ~/homepage && cd ~/homepage
@@ -350,19 +347,9 @@ sudo docker compose up -d
 
 ---
 
-### Pi-Hole
-
-**Pi-Hole** est un bloqueur de publicités et de trackers au niveau réseau. Il agit comme un serveur DNS local et filtre les requêtes indésirables pour tous les appareils connectés au réseau domestique, sans configuration nécessaire sur chaque appareil.
-
-**Accès :** `http://ip:VOTRE_PORT/admin`
-
-> 🔧 **Installation à venir**
-
----
-
 ## Acer Gateway DT55 — NAS Debian
 
-L'Acer Gateway DT55 tourne sous **Debian 13 sans interface graphique** pour économiser les ressources (4 Go de RAM). Il sert exclusivement de NAS grâce à ses **2,5 To de stockage** (disque d'origine 500 Go + disque de 2 To ajouté).
+L'Acer Gateway DT55 tourne sous **Debian 13 sans interface graphique** pour économiser les ressources (4 Go de RAM). Il sert exclusivement de stockage grâce à ses **2,5 To de stockage** (disque d'origine 500 Go + 2 disques de 1 To ajoutés).
 
 ---
 
