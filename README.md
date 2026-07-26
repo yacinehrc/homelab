@@ -51,12 +51,11 @@ Le HP EliteDesk tourne sous **Proxmox VE**, un hyperviseur de type 1 qui permet 
 
 La VM est créée depuis l'interface web Proxmox avec les paramètres suivants.
 
-**Onglet Général** — nom `VM-Docker`, VM ID `100`, nœud `proxmox`.
 
+**Onglet Général** — nom `VM-Docker`, VM ID `100`, nœud `proxmox`.
 <img width="777" height="581" alt="Capture d&#39;écran 2026-07-26 131832" src="https://github.com/user-attachments/assets/d9133d94-588c-43b0-871b-7d0c8141e034" />
 
 **Onglet Système d'exploitation** — image ISO `debian-13.6.0-amd64-netinst`, type Linux.
-
 <img width="777" height="591" alt="Capture d&#39;écran 2026-07-26 131728" src="https://github.com/user-attachments/assets/420e534f-ea8b-48c9-a8bc-2efe57c05084" />
 
 **Onglet Système** — BIOS SeaBIOS, machine i440fx, contrôleur SCSI VirtIO.
