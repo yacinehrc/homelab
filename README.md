@@ -55,31 +55,32 @@ La VM est créée depuis l'interface web Proxmox avec les paramètres suivants.
 **Onglet Général** — nom `VM-Docker`, VM ID `100`, nœud `proxmox`.
 <img width="777" height="581" alt="Capture d&#39;écran 2026-07-26 131832" src="https://github.com/user-attachments/assets/d9133d94-588c-43b0-871b-7d0c8141e034" />
 
+
 **Onglet Système d'exploitation** — image ISO `debian-13.6.0-amd64-netinst`, type Linux.
 <img width="777" height="591" alt="Capture d&#39;écran 2026-07-26 131728" src="https://github.com/user-attachments/assets/420e534f-ea8b-48c9-a8bc-2efe57c05084" />
 
-**Onglet Système** — BIOS SeaBIOS, machine i440fx, contrôleur SCSI VirtIO.
 
+**Onglet Système** — BIOS SeaBIOS, machine i440fx, contrôleur SCSI VirtIO.
 <img width="782" height="586" alt="Capture d&#39;écran 2026-07-26 131821" src="https://github.com/user-attachments/assets/6bf93bba-cf40-4174-8cce-8960212b6eee" />
 
-**Onglet Disques** — disque IDE de 30 GiB sur `local-lvm`.
 
+**Onglet Disques** — disque IDE de 30 GiB sur `local-lvm`.
 <img width="777" height="588" alt="Capture d&#39;écran 2026-07-26 131918" src="https://github.com/user-attachments/assets/947b7074-ef16-4f00-8557-e3748968ebf1" />
 
-**Onglet Processeur** — 1 socket, 2 cœurs (x86-64-v2-AES).
 
+**Onglet Processeur** — 1 socket, 2 cœurs (x86-64-v2-AES).
 <img width="774" height="588" alt="Capture d&#39;écran 2026-07-26 132010" src="https://github.com/user-attachments/assets/fb0fecc1-1281-4d9a-91c0-f81b19f2d953" />
 
-**Onglet Mémoire** — 2048 MiB de RAM.
 
+**Onglet Mémoire** — 2048 MiB de RAM.
 <img width="769" height="588" alt="Capture d&#39;écran 2026-07-26 132046" src="https://github.com/user-attachments/assets/9a1fd114-3211-46d9-ba29-c81a27cdcba4" />
 
-**Onglet Réseau** — pont `vmbr0`, modèle Intel E1000, pare-feu activé.
 
+**Onglet Réseau** — pont `vmbr0`, modèle Intel E1000, pare-feu activé.
 <img width="774" height="582" alt="Capture d&#39;écran 2026-07-26 132108" src="https://github.com/user-attachments/assets/7c9e8af7-d4a6-49f5-9b2e-86b016146435" />
 
-**Onglet Confirmation** — récapitulatif complet avant création.
 
+**Onglet Confirmation** — récapitulatif complet avant création.
 <img width="774" height="598" alt="Capture d&#39;écran 2026-07-26 132127" src="https://github.com/user-attachments/assets/4d071259-8fb4-4dea-b8ec-ff8bc91d46c5" />
 
 ---
