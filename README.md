@@ -1,10 +1,8 @@
-**[EN COURS]**
-
 # Homelab
 
-![HomePage — tableau de bord des services](VOTRE_SCREENSHOT_HOMEPAGE_ICI)
+<img width="1919" height="950" alt="Capture d&#39;écran 2026-08-02 161459" src="https://github.com/user-attachments/assets/69ffd408-862e-41c2-ba85-7dfebc5de468" />
 
-> Infrastructure personnelle auto-hébergée sur deux machines physiques — un HP EliteDesk 800 G3 Mini sous Proxmox VE pilotant une VM Docker avec tous les services, et un Acer Gateway DT55 sous Debian servant de NAS avec 2,5 To de stockage via LVM et Samba.
+> Infrastructure personnelle auto-hébergée sur deux machines physiques — un HP EliteDesk 800 G3 Mini sous Proxmox VE pilotant une VM Docker avec tous les services, et un Acer Gateway DT55 sous Debian servant de stockage avec 2,5 To de stockage via LVM et le partage de fichiers Samba.
 
 ---
 
@@ -48,7 +46,7 @@ Le homelab repose sur deux machines physiques avec des rôles distincts.
 
 Le HP EliteDesk tourne sous **Proxmox VE**, un hyperviseur de type 1 qui permet de créer et gérer des machines virtuelles directement sur le matériel. Une VM **Debian 13** héberge l'ensemble des services Docker.
 
-![Interface Proxmox VE](VOTRE_SCREENSHOT_131220_ICI)
+<img width="1919" height="949" alt="Capture d&#39;écran 2026-07-25 160735" src="https://github.com/user-attachments/assets/2f0b63c3-de10-4232-9358-0963b1874195" />
 
 ### Proxmox VE — Création de la VM Docker
 
@@ -56,35 +54,35 @@ La VM est créée depuis l'interface web Proxmox avec les paramètres suivants.
 
 **Onglet Général** — nom `VM-Docker`, VM ID `100`, nœud `proxmox`.
 
-![Général](VOTRE_SCREENSHOT_131728_ICI)
+<img width="777" height="581" alt="Capture d&#39;écran 2026-07-26 131832" src="https://github.com/user-attachments/assets/8118e54c-e844-45a2-8cc3-12bea7f287e3" />
 
 **Onglet Système d'exploitation** — image ISO `debian-13.6.0-amd64-netinst`, type Linux.
 
-![Système d'exploitation](VOTRE_SCREENSHOT_131821_ICI)
+<img width="777" height="591" alt="Capture d&#39;écran 2026-07-26 131728" src="https://github.com/user-attachments/assets/0fedec49-ac54-4feb-b3ef-162606de7761" />
 
 **Onglet Système** — BIOS SeaBIOS, machine i440fx, contrôleur SCSI VirtIO.
 
-![Système](VOTRE_SCREENSHOT_131832_ICI)
+<img width="782" height="586" alt="Capture d&#39;écran 2026-07-26 131821" src="https://github.com/user-attachments/assets/fb76094e-b46f-4c16-8bc8-78a53aba28c1" />
 
 **Onglet Disques** — disque IDE de 30 GiB sur `local-lvm`.
 
-![Disques](VOTRE_SCREENSHOT_131918_ICI)
+<img width="777" height="588" alt="Capture d&#39;écran 2026-07-26 131918" src="https://github.com/user-attachments/assets/7ac9c124-569d-4e3b-8972-ac831d53846b" />
 
 **Onglet Processeur** — 1 socket, 2 cœurs (x86-64-v2-AES).
 
-![Processeur](VOTRE_SCREENSHOT_132010_ICI)
+<img width="774" height="588" alt="Capture d&#39;écran 2026-07-26 132010" src="https://github.com/user-attachments/assets/165b008e-1a62-4576-8e0b-c4c7dc9cca89" />
 
 **Onglet Mémoire** — 2048 MiB de RAM.
 
-![Mémoire](VOTRE_SCREENSHOT_132046_ICI)
+<img width="769" height="588" alt="Capture d&#39;écran 2026-07-26 132046" src="https://github.com/user-attachments/assets/e146eaeb-d621-44bf-8302-7d358eea2266" />
 
 **Onglet Réseau** — pont `vmbr0`, modèle Intel E1000, pare-feu activé.
 
-![Réseau](VOTRE_SCREENSHOT_132108_ICI)
+<img width="774" height="582" alt="Capture d&#39;écran 2026-07-26 132108" src="https://github.com/user-attachments/assets/1109ee2f-9dd3-4de5-a8d1-188cc1037680" />
 
 **Onglet Confirmation** — récapitulatif complet avant création.
 
-![Confirmation](VOTRE_SCREENSHOT_132127_ICI)
+<img width="774" height="598" alt="Capture d&#39;écran 2026-07-26 132127" src="https://github.com/user-attachments/assets/49db7ef5-93f7-4d3f-bb84-1aa86833fcee" />
 
 ---
 
@@ -93,9 +91,6 @@ La VM est créée depuis l'interface web Proxmox avec les paramètres suivants.
 Installation de la version officielle Docker CE sur la VM Debian 13, via le dépôt officiel Docker.
 
 ```bash
-# Supprimer les anciennes versions si présentes
-sudo apt remove docker docker-engine docker.io containerd runc
-
 # Prérequis
 sudo apt update
 sudo apt install ca-certificates curl gnupg
@@ -154,41 +149,11 @@ sudo docker logs portainer
 
 Au premier lancement, Portainer affiche un assistant de configuration (*Environment Wizard*) qui propose de se connecter à l'environnement Docker local ou d'en ajouter d'autres.
 
-![Portainer — Quick Setup](VOTRE_SCREENSHOT_PORTAINER_SETUP_ICI)
+<img width="1919" height="946" alt="Capture d&#39;écran 2026-08-02 161420" src="https://github.com/user-attachments/assets/dfdb44ec-2c0f-43ba-b746-29cb6c6d7942" />
 
 Une fois configuré, l'onglet **Stacks** liste tous les docker-compose déployés sur la machine : `docker` (Portainer + Nextcloud + Nginx), `homepage`, `ollama-webui`, `pihole` et `uptime`.
 
-![Portainer — Liste des Stacks](VOTRE_SCREENSHOT_PORTAINER_STACKS_ICI)
-
----
-
-### Nextcloud
-
-**Nextcloud** est un cloud personnel auto-hébergé. Il permet de synchroniser et partager fichiers, calendriers et contacts, comme Google Drive mais sur sa propre infrastructure.
-
-**Accès :** `http://ip:8080`
-
-```bash
-mkdir -p ~/docker/nextcloud
-```
-
-```yaml
-# À ajouter dans ~/docker/docker-compose.yml
-  nextcloud:
-    image: nextcloud:latest
-    container_name: nextcloud
-    ports:
-      - "8080:80"
-    volumes:
-      - ./nextcloud:/var/www/html
-```
-
-```bash
-cd ~/docker
-sudo docker compose up -d
-```
-
-![Nextcloud](VOTRE_SCREENSHOT_NEXTCLOUD_ICI)
+<img width="1919" height="950" alt="Capture d&#39;écran 2026-08-02 161459" src="https://github.com/user-attachments/assets/02be90a2-7dfd-4ebd-a552-cd97155956c6" />
 
 ---
 
@@ -221,31 +186,7 @@ cd ~/docker
 sudo docker compose up -d
 ```
 
-![Nginx Proxy Manager](VOTRE_SCREENSHOT_NPM_ICI)
-
----
-
-### Nginx
-
-**Nginx** utilisé ici comme serveur web statique pour tester et servir des pages HTML directement depuis la machine.
-
-**Accès :** `http://ip:8081`
-
-```bash
-mkdir ~/nginx-web
-cd ~/nginx-web
-nano index.html
-```
-
-```html
-<h1>Hello World!</h1>
-```
-
-```bash
-sudo docker run -d --name mon-serveur-web -p 8081:80 -v ~/nginx-web/index.html:/usr/share/nginx/html/index.html nginx
-```
-
-![Nginx](VOTRE_SCREENSHOT_NGINX_ICI)
+<img width="1919" height="954" alt="Capture d&#39;écran 2026-08-02 160148" src="https://github.com/user-attachments/assets/ce81b68c-8de9-469e-999d-f7723c87fb7b" />
 
 ---
 
@@ -276,7 +217,7 @@ services:
 sudo docker compose up -d
 ```
 
-![Uptime Kuma](VOTRE_SCREENSHOT_UPTIMEKUMA_ICI)
+<img width="1917" height="948" alt="Capture d&#39;écran 2026-08-02 155955" src="https://github.com/user-attachments/assets/d36d1f72-d6f5-445f-a487-c9f7c851bcd3" />
 
 ---
 
@@ -322,7 +263,7 @@ volumes:
 sudo docker compose up -d
 ```
 
-![Ollama + Open WebUI](VOTRE_SCREENSHOT_OLLAMA_ICI)
+<img width="1919" height="950" alt="Capture d&#39;écran 2026-08-02 155926" src="https://github.com/user-attachments/assets/f2cb1a47-004c-4ca4-9f12-0b022490a2dc" />
 
 ---
 
@@ -355,7 +296,7 @@ services:
 sudo docker compose up -d
 ```
 
-![HomePage](VOTRE_SCREENSHOT_HOMEPAGE_ICI)
+<img width="1919" height="954" alt="Capture d&#39;écran 2026-08-02 155935" src="https://github.com/user-attachments/assets/646cb667-9dd6-4566-99c3-1a4f921e4171" />
 
 ---
 
@@ -390,15 +331,13 @@ sudo docker compose up -d
 docker exec -it pihole pihole setpassword
 ```
 
-![Pi-Hole](VOTRE_SCREENSHOT_PIHOLE_ICI)
+<img width="1919" height="947" alt="Capture d&#39;écran 2026-08-02 123124" src="https://github.com/user-attachments/assets/03a51792-2bdd-4cd5-81f6-689acedd4892" />
 
 ---
 
 ## Acer Gateway DT55 — NAS Debian
 
-L'Acer Gateway DT55 tourne sous **Debian 13 sans interface graphique** pour économiser les ressources (4 Go de RAM). Il joue le rôle de serveur de fichiers pour l'ensemble du réseau local grâce à ses **2,5 To de stockage** répartis sur trois disques durs.
-
-![Acer Gateway DT55](VOTRE_SCREENSHOT_ACER_ICI)
+L'Acer Gateway DT55 tourne sous **Debian 13 sans interface graphique** pour économiser les ressources (4 Go de RAM). Il joue le rôle de serveur de fichiers pour l'ensemble du réseau local grâce à ses **2,5 To de stockage** répartis sur trois disques durs (500Go d'origine + 2 × 1 To rajoutés).
 
 ---
 
@@ -408,43 +347,17 @@ L'Acer dispose de **trois disques HDD** : 2 × 1 To + 1 × 500 Go, soit 2,5 To a
 
 Deux alternatives ont été écartées au profit de **LVM (Logical Volume Manager)** :
 
-**RAID 0 écarté** — le RAID 0 strippe les données en répartissant chaque bloc sur l'ensemble des disques. Avec des disques de tailles différentes, la capacité utilisable est limitée à la taille du plus petit disque multipliée par le nombre de disques : `3 × 500 Go = 1,5 To`. Cela aurait entraîné une **perte de 1 To** de capacité.
+→ **RAID 0 écarté** — le RAID 0 strippe les données en répartissant chaque bloc sur l'ensemble des disques. Avec des disques de tailles différentes, la capacité utilisable est limitée à la taille du plus petit disque multipliée par le nombre de disques : `3 × 500 Go = 1,5 To`. Cela aurait entraîné une **perte de 1 To** de capacité.
 
-**Solution NAS dédiée écartée** — une appliance NAS aurait servi uniquement au stockage, sans réelle possibilité d'apprentissage technique approfondi.
+→ **Solution NAS dédiée écartée** — une appliance NAS aurait servi uniquement au stockage, sans réelle possibilité d'apprentissage technique approfondi pour mes études.
 
-**LVM choisi** — le LVM regroupe les trois disques dans un seul groupe de volumes (*Volume Group*) non chiffré, permettant d'exploiter l'intégralité des **2,5 To** sans perte. C'est aussi une technologie incontournable en administration système Linux, bien plus intéressante à maîtriser dans le cadre du **BTS SIO**. Samba vient ensuite exposer ce volume sur le réseau local de façon **multiplateforme** (Windows, macOS, Linux).
+→ **LVM choisi** — le LVM regroupe les trois disques dans un seul groupe de volumes (*Volume Group*) non chiffré, permettant d'exploiter l'intégralité des **2,5 To** sans perte. C'est aussi une technologie incontournable en administration système Linux, bien plus intéressante à maîtriser dans le cadre du **BTS SIO**. Samba vient ensuite exposer ce volume sur le réseau local de façon **multiplateforme** (Windows, macOS, Linux).
 
 ---
 
 ### Création du LVM
 
-```bash
-# Identifier les disques disponibles
-lsblk
-
-# Initialiser chaque disque comme volume physique LVM
-sudo pvcreate /dev/sdb /dev/sdc /dev/sdd
-
-# Créer un groupe de volumes regroupant les 3 disques
-sudo vgcreate vg-nas /dev/sdb /dev/sdc /dev/sdd
-
-# Créer un volume logique utilisant tout l'espace disponible
-sudo lvcreate -l 100%FREE -n lv-stockage vg-nas
-
-# Formater en ext4
-sudo mkfs.ext4 /dev/vg-nas/lv-stockage
-
-# Créer le point de montage
-sudo mkdir -p /mnt/stockage
-
-# Monter le volume
-sudo mount /dev/vg-nas/lv-stockage /mnt/stockage
-
-# Rendre le montage permanent au démarrage
-echo '/dev/vg-nas/lv-stockage /mnt/stockage ext4 defaults 0 2' | sudo tee -a /etc/fstab
-```
-
-![LVM créé](VOTRE_SCREENSHOT_LVM_ICI)
+Pour la création du LVM, je l'ai fait pendant l'installation de Debian 13, j'ai sélectionné un partitionnement manuel, regroupé mes disques dans un groupe de volumes (VG), puis créé un volume logique (LV) à l'intérieur pour y assigner le point de montage de la racine (/).
 
 ---
 
@@ -452,7 +365,7 @@ echo '/dev/vg-nas/lv-stockage /mnt/stockage ext4 defaults 0 2' | sudo tee -a /et
 
 **Samba** est un service de partage de fichiers multiplateforme basé sur le protocole SMB/CIFS. Il rend le volume LVM de 2,5 To accessible comme un lecteur réseau depuis n'importe quel appareil du réseau local — Windows, macOS ou Linux — sans logiciel supplémentaire côté client.
 
-**Accès :** `\\ip\stockage` (Windows) ou `smb://ip/stockage` (macOS/Linux)
+**Accès :** `\\ip\NOM` *Nom que vous donnerez lors de la configuration de Samba dans* ```bash sudo nano /etc/samba/smb.conf``` (Windows) ou `smb://ip/NOM` (macOS/Linux)
 
 ```bash
 # Installation de Samba
@@ -486,13 +399,17 @@ sudo systemctl restart smbd
 sudo systemctl status smbd
 ```
 
-![Samba](VOTRE_SCREENSHOT_SAMBA_ICI)
+<img width="775" height="234" alt="Capture d&#39;écran 2026-08-02 170848" src="https://github.com/user-attachments/assets/48e79d81-71b2-448b-a801-874018f57bc5" />
+
+Suite à une réinstallation complète de Debian sur la même adresse IP, des conflits de cache d'authentification ont initialement compromis la connexion au service Samba. La résolution de cet incident a nécessité une intervention directe sur le gestionnaire d'identités pour réattribuer explicitement les droits d'accès aux partages.
+
+<img width="1077" height="516" alt="Capture d&#39;écran 2026-08-02 171447" src="https://github.com/user-attachments/assets/c4b4ff49-9516-48e4-b679-d45a5775fc3e" />
 
 ---
 
 ### Webmin
 
-**Webmin** est une interface web d'administration système pour Linux. Il donne une vue graphique complète sur l'Acer Gateway DT55 depuis n'importe quel navigateur : état des composants (CPU, RAM, température), utilisation du stockage, gestion des disques et du LVM, services actifs, logs système et utilisateurs. C'est l'équivalent d'un panneau de contrôle distant sans avoir besoin d'ouvrir un terminal SSH pour chaque vérification.
+**Webmin** est une interface web d'administration système pour Linux, tout comme Cockpit mais l'objectif est de varier les outils. Il donne une vue graphique complète sur l'Acer Gateway DT55 depuis n'importe quel navigateur : état des composants (CPU, RAM, température), utilisation du stockage, gestion des disques et du LVM, services actifs, logs système et utilisateurs. C'est l'équivalent d'un panneau de contrôle distant sans avoir besoin d'ouvrir un terminal SSH pour chaque vérification.
 
 **Accès :** `https://ip:10000`
 
@@ -508,17 +425,13 @@ sudo apt install webmin -y
 sudo systemctl status webmin
 ```
 
-![Webmin](VOTRE_SCREENSHOT_WEBMIN_ICI)
+<img width="1919" height="953" alt="Capture d&#39;écran 2026-08-02 165523" src="https://github.com/user-attachments/assets/ba95121d-d77e-47b5-af39-490dbbcebaff" />
 
 ---
 
 ## Conclusion
 
 Ce homelab repose sur une séparation claire des rôles : le HP EliteDesk concentre toute la puissance de calcul et l'orchestration Docker via Proxmox, tandis que l'Acer Gateway joue le rôle de serveur de fichiers avec ses 2,5 To agrégés en LVM. Cette architecture permet d'héberger des services personnels complets — cloud, IA locale, monitoring, reverse proxy, blocage publicitaire réseau — tout en gardant la main sur ses données et en mettant en pratique des compétences directement liées au parcours **BTS SIO**.
-
----
-
-*Réalisé par [Yacine Harrache](https://github.com/yacinehrc) — BTS SIO SLAM | EPSI Lille*
 
 ---
 
