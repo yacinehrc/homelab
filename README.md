@@ -34,7 +34,7 @@ Le homelab repose sur deux machines physiques avec des rôles distincts.
 |---|---|---|
 | **HP EliteDesk 800 G3 Mini** | Proxmox VE (Hyperviseur T1) | VM Docker — tous les services |
 | **Acer Gateway DT55** | Debian 13 (sans GUI) | NAS — partage de fichiers 2,5 To |
-| **HP 17-cn3078nf** | Windows 11 & Ubuntu | PC principal — gestion SSH & navigateur |
+| **HP 17-cn3078nf** | Windows 11 & Ubuntu | PC principal — gestion SSH (Secure Shell) & navigateur |
 
 ---
 
@@ -318,7 +318,7 @@ sudo docker compose up -d
 
 **Pi-Hole** est un bloqueur de publicités et de trackers au niveau réseau. Il agit comme un serveur DNS local et intercepte les requêtes vers les domaines publicitaires pour tous les appareils connectés au réseau domestique — sans aucune configuration nécessaire appareil par appareil.
 
-**Accès :** `http://ip/admin`
+**Accès :** `http://ip:8080/admin`
 
 ```yaml
 services:
@@ -328,10 +328,10 @@ services:
     ports:
       - "53:53/tcp"
       - "53:53/udp"
-      - "80:80/tcp"
+      - "8080:80/tcp"
     environment:
       TZ: 'Europe/Paris'
-      WEBPASSWORD: 'ton_mot_de_passe'
+      WEBPASSWORD: 'mot_de_passe_a_definir'
     volumes:
       - './etc-pihole:/etc/pihole'
       - './etc-dnsmasq.d:/etc/dnsmasq.d'
@@ -344,6 +344,8 @@ sudo docker compose up -d
 # En cas de problème avec le mot de passe
 docker exec -it pihole pihole setpassword
 ```
+
+*Quand j'ai configuré le fichier pour Pi_hole, le port utilisé était le 80 (HTTP), sauf que ça m'a fait perdre l'accès à plusieurs services, notamment Nginx Proxy Manager qui utilise exactement le même port. Donc, pour éviter ce conflit de port, j'ai configuré Pi-hole tel qu'il utilise le port 8080, et que NPM reste sur le port 80.*
 
 <img width="1919" height="947" alt="Capture d&#39;écran 2026-08-02 123124" src="https://github.com/user-attachments/assets/03a51792-2bdd-4cd5-81f6-689acedd4892" />
 
@@ -444,6 +446,14 @@ sudo systemctl status webmin
 ---
 
 ## Conclusion
+
+Ce projet m'a permis :
+- d'apprendre l'utilisation de Proxmox et donc de la virtualisation
+- gérer 2 machines en même temps grâce au SSH
+- d'apprendre à la configuration des services (docker-compose.yml)
+- de découvrir le LVM et son utilité
+- d'avoir un vrai espace de stockage local
+- de corriger des incidents techniques concrets (conflits d'adresse IP, conflits de ports entre 2 services)
 
 Ce homelab repose sur une séparation claire des rôles : le HP EliteDesk concentre toute la puissance de calcul et l'orchestration Docker via Proxmox, tandis que l'Acer Gateway joue le rôle de serveur de fichiers avec ses 2,5 To agrégés en LVM. Cette architecture permet d'héberger des services personnels complets — cloud, IA locale, monitoring, reverse proxy, blocage publicitaire réseau — tout en gardant la main sur ses données et en mettant en pratique des compétences directement liées au parcours **BTS SIO**.
 
