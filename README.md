@@ -30,8 +30,6 @@
 
 Le homelab repose sur deux machines physiques avec des rôles distincts.
 
-![Schéma d'architecture du homelab](VOTRE_SCREENSHOT_SCHEMA_ICI)
-
 | Machine | OS | Rôle |
 |---|---|---|
 | **HP EliteDesk 800 G3 Mini** | Proxmox VE (Hyperviseur T1) | VM Docker — tous les services |
