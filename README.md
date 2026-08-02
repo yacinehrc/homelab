@@ -42,13 +42,16 @@ Le homelab repose sur deux machines physiques avec des rôles distincts.
 
 Le HP EliteDesk tourne sous **Proxmox VE**, un hyperviseur de type 1 qui permet de créer et gérer des machines virtuelles directement sur le matériel. Une VM **Debian 13** héberge l'ensemble des services Docker.
 
+
 <img width="1919" height="949" alt="Capture d&#39;écran 2026-07-25 160735" src="https://github.com/user-attachments/assets/2f0b63c3-de10-4232-9358-0963b1874195" />
+
 
 ### Proxmox VE — Création de la VM Docker
 
 La VM est créée depuis l'interface web Proxmox avec les paramètres suivants.
 
 **Onglet Général** — nom `VM-Docker`, VM ID `100`, nœud `proxmox`.
+
 
 <img width="777" height="581" alt="Capture d&#39;écran 2026-07-26 131832" src="https://github.com/user-attachments/assets/8118e54c-e844-45a2-8cc3-12bea7f287e3" />
 
@@ -73,22 +76,27 @@ La VM est créée depuis l'interface web Proxmox avec les paramètres suivants.
 
 **Onglet Processeur** — 1 socket, 2 cœurs (x86-64-v2-AES).
 
+
 <img width="774" height="588" alt="Capture d&#39;écran 2026-07-26 132010" src="https://github.com/user-attachments/assets/165b008e-1a62-4576-8e0b-c4c7dc9cca89" />
 
 
 **Onglet Mémoire** — 2048 MiB de RAM.
+
 
 <img width="769" height="588" alt="Capture d&#39;écran 2026-07-26 132046" src="https://github.com/user-attachments/assets/e146eaeb-d621-44bf-8302-7d358eea2266" />
 
 
 **Onglet Réseau** — pont `vmbr0`, modèle Intel E1000, pare-feu activé.
 
+
 <img width="774" height="582" alt="Capture d&#39;écran 2026-07-26 132108" src="https://github.com/user-attachments/assets/1109ee2f-9dd3-4de5-a8d1-188cc1037680" />
 
 
 **Onglet Confirmation** — récapitulatif complet avant création.
 
+
 <img width="774" height="598" alt="Capture d&#39;écran 2026-07-26 132127" src="https://github.com/user-attachments/assets/49db7ef5-93f7-4d3f-bb84-1aa86833fcee" />
+
 
 ---
 
