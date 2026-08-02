@@ -1,6 +1,6 @@
 # Homelab
 
-<img width="1919" height="950" alt="Capture d&#39;écran 2026-08-02 161459" src="https://github.com/user-attachments/assets/69ffd408-862e-41c2-ba85-7dfebc5de468" />
+<img width="1221" height="684" alt="Capture d&#39;écran 2026-08-02 174435" src="https://github.com/user-attachments/assets/aa56480d-f2c1-4837-a4b6-ae359589e421" />
 
 > Infrastructure personnelle auto-hébergée sur deux machines physiques — un HP EliteDesk 800 G3 Mini sous Proxmox VE pilotant une VM Docker avec tous les services, et un Acer Gateway DT55 sous Debian servant de stockage avec 2,5 To de stockage via LVM et le partage de fichiers Samba.
 
@@ -13,9 +13,7 @@
   - [Proxmox VE — Création de la VM Docker](#proxmox-ve--création-de-la-vm-docker)
   - [Installation de Docker](#installation-de-docker)
   - [Portainer](#portainer)
-  - [Nextcloud](#nextcloud)
   - [Nginx Proxy Manager](#nginx-proxy-manager)
-  - [Nginx](#nginx)
   - [Uptime Kuma](#uptime-kuma)
   - [Ollama + Open WebUI](#ollama--open-webui)
   - [HomePage](#homepage)
