@@ -41,7 +41,6 @@ Le homelab repose sur deux machines physiques avec des rôles distincts.
 ## HP EliteDesk 800 G3 Mini — Proxmox + Docker
 
 Le HP EliteDesk tourne sous **Proxmox VE**, un hyperviseur de type 1 qui permet de créer et gérer des machines virtuelles directement sur le matériel. Une VM **Debian 13** héberge l'ensemble des services Docker.
-
 <img width="1919" height="949" alt="Capture d&#39;écran 2026-07-25 160735" src="https://github.com/user-attachments/assets/2f0b63c3-de10-4232-9358-0963b1874195" />
 
 ### Proxmox VE — Création de la VM Docker
@@ -49,17 +48,12 @@ Le HP EliteDesk tourne sous **Proxmox VE**, un hyperviseur de type 1 qui permet 
 La VM est créée depuis l'interface web Proxmox avec les paramètres suivants.
 
 **Onglet Général** — nom `VM-Docker`, VM ID `100`, nœud `proxmox`.
-
 <img width="777" height="581" alt="Capture d&#39;écran 2026-07-26 131832" src="https://github.com/user-attachments/assets/8118e54c-e844-45a2-8cc3-12bea7f287e3" />
 
-
 **Onglet Système d'exploitation** — image ISO `debian-13.6.0-amd64-netinst`, type Linux.
-
 <img width="777" height="591" alt="Capture d&#39;écran 2026-07-26 131728" src="https://github.com/user-attachments/assets/0fedec49-ac54-4feb-b3ef-162606de7761" />
 
-
 **Onglet Système** — BIOS SeaBIOS, machine i440fx, contrôleur SCSI VirtIO.
-
 <img width="782" height="586" alt="Capture d&#39;écran 2026-07-26 131821" src="https://github.com/user-attachments/assets/fb76094e-b46f-4c16-8bc8-78a53aba28c1" />
 
 
