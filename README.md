@@ -52,29 +52,36 @@ La VM est créée depuis l'interface web Proxmox avec les paramètres suivants.
 
 <img width="777" height="581" alt="Capture d&#39;écran 2026-07-26 131832" src="https://github.com/user-attachments/assets/8118e54c-e844-45a2-8cc3-12bea7f287e3" />
 
+
 **Onglet Système d'exploitation** — image ISO `debian-13.6.0-amd64-netinst`, type Linux.
 
 <img width="777" height="591" alt="Capture d&#39;écran 2026-07-26 131728" src="https://github.com/user-attachments/assets/0fedec49-ac54-4feb-b3ef-162606de7761" />
+
 
 **Onglet Système** — BIOS SeaBIOS, machine i440fx, contrôleur SCSI VirtIO.
 
 <img width="782" height="586" alt="Capture d&#39;écran 2026-07-26 131821" src="https://github.com/user-attachments/assets/fb76094e-b46f-4c16-8bc8-78a53aba28c1" />
 
+
 **Onglet Disques** — disque IDE de 30 GiB sur `local-lvm`.
 
 <img width="777" height="588" alt="Capture d&#39;écran 2026-07-26 131918" src="https://github.com/user-attachments/assets/7ac9c124-569d-4e3b-8972-ac831d53846b" />
+
 
 **Onglet Processeur** — 1 socket, 2 cœurs (x86-64-v2-AES).
 
 <img width="774" height="588" alt="Capture d&#39;écran 2026-07-26 132010" src="https://github.com/user-attachments/assets/165b008e-1a62-4576-8e0b-c4c7dc9cca89" />
 
+
 **Onglet Mémoire** — 2048 MiB de RAM.
 
 <img width="769" height="588" alt="Capture d&#39;écran 2026-07-26 132046" src="https://github.com/user-attachments/assets/e146eaeb-d621-44bf-8302-7d358eea2266" />
 
+
 **Onglet Réseau** — pont `vmbr0`, modèle Intel E1000, pare-feu activé.
 
 <img width="774" height="582" alt="Capture d&#39;écran 2026-07-26 132108" src="https://github.com/user-attachments/assets/1109ee2f-9dd3-4de5-a8d1-188cc1037680" />
+
 
 **Onglet Confirmation** — récapitulatif complet avant création.
 
