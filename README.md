@@ -1,6 +1,6 @@
 # Homelab
 
-<img width="1221" height="684" alt="Capture d&#39;écran 2026-08-02 174435" src="https://github.com/user-attachments/assets/aa56480d-f2c1-4837-a4b6-ae359589e421" />
+<img width="1220" height="686" alt="Capture d&#39;écran 2026-08-02 175315" src="https://github.com/user-attachments/assets/f684ffc1-8dce-4e63-8a01-bde63098d201" />
 
 > Infrastructure personnelle auto-hébergée sur deux machines physiques — un HP EliteDesk 800 G3 Mini sous Proxmox VE pilotant une VM Docker avec tous les services, et un Acer Gateway DT55 sous Debian servant de stockage avec 2,5 To de stockage via LVM et le partage de fichiers Samba.
 
