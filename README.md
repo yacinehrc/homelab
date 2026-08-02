@@ -455,7 +455,7 @@ Ce projet m'a permis :
 - d'avoir un vrai espace de stockage local
 - de corriger des incidents techniques concrets (conflits d'adresse IP, conflits de ports entre 2 services)
 
-Ce homelab repose sur une séparation claire des rôles : le HP EliteDesk concentre toute la puissance de calcul et l'orchestration Docker via Proxmox, tandis que l'Acer Gateway joue le rôle de serveur de fichiers avec ses 2,5 To agrégés en LVM. Cette architecture permet d'héberger des services personnels complets — cloud, IA locale, monitoring, reverse proxy, blocage publicitaire réseau — tout en gardant la main sur ses données et en mettant en pratique des compétences directement liées au parcours **BTS SIO**.
+Ce homelab repose sur une séparation claire des rôles : le HP EliteDesk concentre toute la puissance de calcul et l'orchestration Docker via Proxmox, tandis que l'Acer Gateway joue le rôle de serveur de fichiers avec ses 2,5 To agrégés en LVM. Cette architecture permet d'héberger des services personnels complets — stockage, IA locale, monitoring, reverse proxy, blocage publicitaire réseau — tout en gardant la main sur ses données et en mettant en pratique des compétences directement liées au parcours **BTS SIO**.
 
 ---
 
